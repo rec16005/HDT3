@@ -13,12 +13,11 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		Random randomito = new Random();
-		Archivo archivo = new Archivo(); 
 		
 		MergeSort ms = new MergeSort();	// Metodo de la clase que ordenará la lista de números random
-		GnomeSort gs = new GnomeSort();
-		QuickSort qs = new QuickSort();
-		RadixSort rs = new RadixSort();
+		//GnomeSort gs = new GnomeSort();
+		//QuickSort qs = new QuickSort();
+		//RadixSort rs = new RadixSort();
 		
 		ArrayList<Integer>numeros = new ArrayList<Integer>(); // Array de numeros random
 		
@@ -26,14 +25,11 @@ public class Main {
 		for (int i = 0; i <3000; ++i){
 			int numero = randomito.nextInt();
 			numeros.add(numero); // Se llena el array de numeros random como elementos
+			
 		}
-		
-		archivo.guardarEnArchivo(numeros);
-		archivo.leerArchivo(numeros);
-		
-		
-		
-		
+		Archivo.guardarEnArchivo(numeros);
+		Archivo.leerArchivo(numeros);
+
 		// Esta es la lista de numeros random que se ordenara con cada sort
 		int listaAordenar[]  = new int[numeros.size()];
         Iterator<Integer> iter = numeros.iterator();
