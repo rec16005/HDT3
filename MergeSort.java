@@ -1,40 +1,58 @@
-import java.util.*;
-import java.io.*;
+// Extraído de http://javahungry.blogspot.com/2013/06/java-sorting-program-code-merge-sort.html
 
-public class MergeSort {
-	Archivo archivo = new Archivo();
-	String nums = archivo.getNumeros();
+public class MergeSort implements Comparable{
 	
-	//Arreglo con los numeros random como elementos
-	String[] parts = nums.split(" ");
+	/**
+	 * Se unen dos mitades del array en un array resultado
+	 * @param primero
+	 * @param segundo
+	 * @param resultado
+	 */
+	private static void merge(int[] primero, int[] segundo, int[] resultado){
+		
+		int xPrimero = 0; // Elemento del primer array
+        int xSegundo = 0; // elemento del segundo array
+        int j = 0; // elemento vacio en resultado
+        
+        while (xPrimero < primero.length && xSegundo < segundo.length) {
+            if (primero[xPrimero] < segundo[xSegundo]) {
+                resultado[j] = primero[xPrimero];
+                xPrimero++;
+                } else {
+                resultado[j] = segundo[xSegundo];
+                xSegundo++;
+            }
+            j++;
+        }
+        System.arraycopy(primero, xPrimero, resultado, j, primero.length - xPrimero);
+        System.arraycopy(segundo, xSegundo, resultado, j, segundo.length - xSegundo);
+	}
 	
-	if (parts.length > 2){
-			String[] arreglo1 = new String[parts.length/2];
-			String[] arreglo2 = new String[parts.length/2];
-				
-			System.out.print("\n");
-			System.out.print("arreglito 1: ");
-			
-			for(int i = 0 ; i < parts.length/2 ; ++i) {
-			    arreglo1[i] = parts[i];
-			    System.out.print(arreglo1[i]+" ");
-			}
-			
-			System.out.print("\n");
-			System.out.print("arreglito 2: ");
-			int n = parts.length;
-			
-			for(int i = n -1 ; i >= n/2 ; --i) {
-			    arreglo2[(n-1)-i] = parts[i];
-			    //System.out.print(arreglo2[19-i]+" ");
-			}
-			
-			for (int i = 0; i < arreglo2.length; i++){
-				String temp = arreglo2[i];
-				arreglo2[i] = arreglo2[arreglo2.length-1-i];
-				arreglo2[arreglo2.length-1-i] = temp;
-			    System.out.print(arreglo2[i]+" ");
-			}
-		}	
+	/**
+	 * Metodo que divide el array en dos, los ordena y los une de nuevo
+	 * @param list
+	 * @return
+	 */
+	public static int[] mergeSort(int [] list){
+		if (list.length <= 1){ // si solo hay un elemento, se devuelve el mismo
+			return list;
+		}
+		// Se parte el array a la mitad
+		int [] primero = new int[list.length/2];
+		int [] segundo = new int[list.length - primero.length];
+		System.arraycopy(list, 0, primero, 0, primero.length);
+	    System.arraycopy(list, primero.length, segundo, 0, segundo.length);
+	    // Se ordena cada mitad
+	    mergeSort(primero);
+	    mergeSort(segundo);
+	    // Se unen ambas mitades y se guarda en el array original
+	    merge(primero, segundo, list);
+	    return list;
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
