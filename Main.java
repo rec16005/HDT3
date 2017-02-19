@@ -18,8 +18,8 @@ public class Main {
 		ArrayList<Integer>numeros = new ArrayList<Integer>(); // Array de numeros random
 		
 		// Se ingresa cada numero generado a un ArrayList
-		for (int i = 0;i <20;++i){
-			int numero = randomito.nextInt(10);
+		for (int i = 0; i <3000; ++i){
+			int numero = randomito.nextInt();
 			numeros.add(numero); // Se llena el array de numeros random como elementos
 		}
 		
