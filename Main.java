@@ -13,7 +13,12 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		Random randomito = new Random();
+		Archivo archivo = new Archivo(); 
+		
 		MergeSort ms = new MergeSort();	// Metodo de la clase que ordenará la lista de números random
+		GnomeSort gs = new GnomeSort();
+		QuickSort qs = new QuickSort();
+		RadixSort rs = new RadixSort();
 		
 		ArrayList<Integer>numeros = new ArrayList<Integer>(); // Array de numeros random
 		
@@ -23,34 +28,11 @@ public class Main {
 			numeros.add(numero); // Se llena el array de numeros random como elementos
 		}
 		
-		// Para ingresar los numeros en el archivo
-		try {
-			File file = new File("nums.txt");
-			FileWriter fileWriter = new FileWriter(file);
-			fileWriter.write(String.valueOf(numeros));
-			fileWriter.flush();
-			fileWriter.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		archivo.guardarEnArchivo(numeros);
+		archivo.leerArchivo(numeros);
 		
-		// Para leer el archivo
-		try {
-			File file = new File("nums.txt");
-			FileReader fileReader = new FileReader(file);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			StringBuffer stringBuffer = new StringBuffer();
-			String line;
-			while ((line = bufferedReader.readLine()) != null) {
-				stringBuffer.append(line);
-				stringBuffer.append("\n");
-			}
-			fileReader.close();
-			System.out.println("Se ingreso en el archivo: ");
-			System.out.println(stringBuffer.toString());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
+		
 		
 		// Esta es la lista de numeros random que se ordenara con cada sort
 		int listaAordenar[]  = new int[numeros.size()];

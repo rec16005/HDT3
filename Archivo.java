@@ -3,39 +3,44 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Random;
+import java.util.ArrayList;
 
-public class Archivo {
-	
-	public String getNumeros() throws IOException {
-		// TODO Auto-generated method stub
-			File file = new File ("numerosRandom.txt");
-			//Para guardar algo en el archivp
-			Random randomito = new Random();
-			FileWriter writer = new FileWriter(file);
-			
-	
-			//Se genera un numero al azar y se guarda en el archivo
-			for (int i = 0;i < 20;++i){
-				int numero = randomito.nextInt(10); 
-				writer.write(String.valueOf(numero) + "\n");
-			}
-			writer.flush();
-			writer.close();
-			
-			//Para leer el archivo
-			FileReader reader = new FileReader(file);
-			BufferedReader buffReader = new BufferedReader(reader);
-			StringBuffer stringBuff = new StringBuffer();
-			String linea;		
-			while ((linea = buffReader.readLine()) != null){
-				stringBuff.append(linea);
-				stringBuff.append(" ");
-			}
-			reader.close();
-			
-			String numeros = stringBuff.toString();
-			System.out.print("numeros: " + numeros);	
-			return numeros;	
+public class Archivo{
+
+	/**
+	 * @param numeros
+	 * @return
+	 */
+	public static ArrayList<Integer> guardarEnArchivo(ArrayList<Integer> numeros){
+		// Para ingresar los numeros en el archivo
+				try {
+					File file = new File("nums.txt");
+					FileWriter fileWriter = new FileWriter(file);
+					fileWriter.write(String.valueOf(numeros));
+					fileWriter.flush();
+					fileWriter.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		return numeros;
+	}
+	public static void leerArchivo(ArrayList<Integer> numeros){
+		// Para leer el archivo
+				try {
+					File file = new File("nums.txt");
+					FileReader fileReader = new FileReader(file);
+					BufferedReader bufferedReader = new BufferedReader(fileReader);
+					StringBuffer stringBuffer = new StringBuffer();
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+						stringBuffer.append(line);
+						stringBuffer.append("\n");
+					}
+					fileReader.close();
+					System.out.println("Se ingreso en el archivo: ");
+					System.out.println(stringBuffer.toString());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 	}
 }
