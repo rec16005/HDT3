@@ -1,18 +1,22 @@
-//Método extaído de: https://en.wikibooks.org/wiki/Algorithm_Implementation/Sorting/Gnome_sort
+//MÃ©todo extaÃ­do de: http://professorjava.weebly.com/gnome-sort.html
 
 public class GnomeSort {
-	static void gnomeSort( int[] theArray ) { 
-	      for ( int index = 1; index < theArray.length; ) { 
-	         if ( theArray[index - 1] <= theArray[index] ) { 
-	            ++index; 
-	         } else { 
-	            int tempVal = theArray[index]; 
-	            theArray[index] = theArray[index - 1]; 
-	            theArray[index - 1] = tempVal; 
-	            --index; 
-	            if ( index == 0 ) { 
-	               index = 1; 
-	            }           
-	         } 
-	      } 
-}}
+	public static int[] gnomeSort(int[] nums){ //takes unsorted array, returns sorted
+	    int index=1; //start of search
+	    int temp;
+	    while(index<nums.length){ //until the array is fully sorted
+	      if(nums[index]<nums[index-1]){ //compares nums[index] with nums[index-1]. if smaller, switch.
+	        temp=nums[index];
+	        nums[index]=nums[index-1];
+	        nums[index-1]=temp;
+	        index--; //must decrease index to recheck. since they have been swapped, the array may still be out of order
+	        if(index==0){ //prevents index from going lower than 1
+	          index=1;
+	        }
+	      }
+	      else{
+	        index++; //if sorted, go up
+	      }
+	    }
+	    return(nums); //reaching the end of the array- completely sorted, returns nums
+	  }}
