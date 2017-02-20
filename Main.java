@@ -4,8 +4,8 @@ import java.io.*;
 
 /**
  * @author Cristopher recinos 16005
- * @author Andrea Cord�n 16076
- * @author Daniel Rodr�guez 15796
+ * @author Andrea Cordï¿½n 16076
+ * @author Daniel Rodrï¿½guez 15796
  * @author Samantha Duarte 16256
  */
 
@@ -15,7 +15,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		Random randomito = new Random();
 
-		MergeSort ms = new MergeSort();	// Metodo de la clase que ordenar� la lista de n�meros random
+		MergeSort ms = new MergeSort();	// Metodo de la clase que ordenarï¿½ la lista de nï¿½meros random
 		//GnomeSort gs = new GnomeSort();
 		//QuickSort qs = new QuickSort();
 		RadixSort rs = new RadixSort();
@@ -54,7 +54,12 @@ public class Main {
 		for (int i = 0; i < listaAordenar.length; i++){
 		System.out.println(listaAordenar[i] + " ");
 				}
-
+	//--------------------- SE ORDENAN LOS NUMEROS CON EL GNOME SORT ---------------------
+        listaAordenar= gs.gnomeSort(listaAordenar);
+        System.out.println("Numeros ordenados por Gnome Sort: ");
+        for (int i=0;i<listaAordenar.length;i++) {
+            System.out.println(listaAordenar[i]+" ");
+}
 
 
 
@@ -67,8 +72,8 @@ import java.io.*;
 
 /**
  * @author Cristopher recinos 16005
- * @author Andrea Cord�n 16076 
- * @author Daniel Rodr�guez 15796
+ * @author Andrea Cordón 16076 
+ * @author Daniel Rodríguez 15796
  * @author Samantha Duarte 16256
  */
 
@@ -78,7 +83,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		Random randomito = new Random();
 		
-		MergeSort ms = new MergeSort();	// Metodo de la clase que ordenar� la lista de n�meros random
+		MergeSort ms = new MergeSort();	// Metodo de la clase que ordenará la lista de números random
 		GnomeSort gs = new GnomeSort();
 		QuickSort qs = new QuickSort();
 		RadixSort rs = new RadixSort();
