@@ -15,9 +15,9 @@ public class Main {
 		Random randomito = new Random();
 		
 		MergeSort ms = new MergeSort();	// Metodo de la clase que ordenará la lista de números random
-		//GnomeSort gs = new GnomeSort();
-		//QuickSort qs = new QuickSort();
-		//RadixSort rs = new RadixSort();
+		GnomeSort gs = new GnomeSort();
+		QuickSort qs = new QuickSort();
+		RadixSort rs = new RadixSort();
 		
 		ArrayList<Integer>numeros = new ArrayList<Integer>(); // Array de numeros random
 		
@@ -44,9 +44,25 @@ public class Main {
         for (int i=0;i<listaAordenar.length;i++) {
             System.out.println(listaAordenar[i]+" ");
         }
-//------------------------------------------------------------------------------------
-			
-	
+//--------------------- SE ORDENAN LOS NUMEROS CON EL GNOME SORT ---------------------
+        listaAordenar= gs.nombredesumetodo(listaAordenar);
+        System.out.println("Numeros ordenados por Gnome Sort: ");
+        for (int i=0;i<listaAordenar.length;i++) {
+            System.out.println(listaAordenar[i]+" ");
+        }
+//--------------------- SE ORDENAN LOS NUMEROS CON EL QUICK SORT ---------------------
+      listaAordenar= qs.nombredesumetodo(listaAordenar);
+      System.out.println("Numeros ordenados por Gnome Sort: ");
+      for (int i=0;i<listaAordenar.length;i++) {
+          System.out.println(listaAordenar[i]+" ");
+      }
+//--------------------- SE ORDENAN LOS NUMEROS CON EL RADIX SORT ---------------------
+      listaAordenar= rs.nombredesumetodo(listaAordenar);
+      System.out.println("Numeros ordenados por Gnome Sort: ");
+      for (int i=0;i<listaAordenar.length;i++) {
+          System.out.println(listaAordenar[i]+" ");
+      }
+
 	
 	
 	
