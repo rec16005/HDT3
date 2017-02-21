@@ -18,7 +18,7 @@ public class QuickSort {
         int middle = low + (high - low) / 2;
         int pivot = arr[middle];
 
-        //busca y compara entre las particiones con el pivote
+        //Busca y Compara entre las particiones con el pivote
         int i = low, j = high;
         while (i <= j) {
                 while (arr[i] < pivot) {
@@ -37,7 +37,7 @@ public class QuickSort {
                         j--;
                 }
         }
-        //Recursiva de listas mas pequeñas
+        //Recursiva de las listas mas pequeñas
         if (low < j)
                 quickSort(arr, low, j);
 
