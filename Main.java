@@ -120,8 +120,8 @@ public class Main {
             System.out.println(listaAordenar[i]+" ");
         }
 //--------------------- SE ORDENAN LOS NUMEROS CON EL QUICK SORT ---------------------
-      listaAordenar= qs.nombredesumetodo(listaAordenar);
-      System.out.println("Numeros ordenados por Gnome Sort: ");
+      listaAordenar= qs.nombredesumetodo(listaAordenar, 0, listaAordenar.length-1);
+      System.out.println("Numeros ordenados por Quick Sort: ");
       for (int i=0;i<listaAordenar.length;i++) {
           System.out.println(listaAordenar[i]+" ");
       }
